@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Roulette Putar</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        #roulette {
+            width: 300px;
+            height: 300px;
+            border: 1px solid #000;
+            border-radius: 50%;
+            position: relative;
+            margin: 50px auto;
+        }
+
+        #arrow {
+            width: 0;
+            height: 0;
+            border-left: 15px solid transparent;
+            border-right: 15px solid transparent;
+            border-bottom: 30px solid #f00;
+            position: absolute;
+            top: -30px;
+            left: 142px;
+            transform: rotate(0deg);
+            transition: transform 4s ease-out;
+        }
+
+        #result {
+            text-align: center;
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="roulette">
+        <div id="arrow"></div>
+    </div>
+    <div id="result"></div>
+
+    <script>
+        function spinRoulette() {
+            // Generate a random number between 1 and 100 to determine the outcome
+            const randomChance = Math.random() * 100;
+
+            // Check the outcome based on the given chances
+            if (randomChance <= 70) {
+                displayResult("Zonk", "");
+            } else if (randomChance <= 60) {
+                displayResult("Discount 10%", "Kode Voucher: DEX1236");
+            } else if (randomChance <= 50) {
+                displayResult("Discount 20%", "Kode Voucher: MAMA333");
+            } else if (randomChance <= 50) {
+                displayResult("Discount 30%", "Kode Voucher: PAPA921");
+            } else if (randomChance <= 40) {
+                displayResult("Discount 40%", "Kode Voucher: SALT921");
+            } else if (randomChance <= 30) {
+                displayResult("Discount 50%", "Kode Voucher: MEEP23");
+            } else if (randomChance <= 20) {
+                displayResult("Discount 60%", "Kode Voucher: SLARK23");
+            } else if (randomChance <= 10) {
+                displayResult("Discount 70%", "Kode Voucher: FEEL32");
+            } else if (randomChance <= 5) {
+                displayResult("Discount 80%", "Kode Voucher: DRAGOEN2");
+            } else if (randomChance <= 2) {
+                displayResult("Discount 90%", "Kode Voucher: BLU29");
+            } else {
+                displayResult("Discount 100%", "Kode Voucher: RED89");
+            }
+
+            // Rotate the arrow to point to the result
+            const arrow = document.getElementById("arrow");
+            arrow.style.transform = `rotate(${360 - (randomChance / 100) * 360}deg)`;
+        }
+
+        function displayResult(resultText, voucherText) {
+            const resultDiv = document.getElementById("result");
+            resultDiv.innerHTML = `<p>Hasil: ${resultText}</p><p>${voucherText}</p>`;
+        }
+    </script>
+
+    <button onclick="spinRoulette()">Putar</button>
+</body>
+
+</html>
