@@ -32,6 +32,20 @@ double getTotal(double qty, double price) {
 ### Tugas Mentor
 - Berikan contoh kode untuk menyederhanakan fungsi print di Dart yang memungkinkan warna di console-nya merah, hijau dan kuning. Buatlah method printRed, printGreen dan printYellow.
 
+```dart
+void printRed(String text) {
+  print('\x1B[31m$text\x1B[0m'); // Warna merah
+}
+
+void printGreen(String text) {
+  print('\x1B[32m$text\x1B[0m'); // Warna hijau
+}
+
+void printYellow(String text) {
+  print('\x1B[33m$text\x1B[0m'); // Warna kuning
+}
+```
+
 - Berikan contoh kode untuk menghitung gaji bersih karyawan. Dimana untuk dalam menghitung gaji, ada ketentuan berikut:
 ```dart
 gajiKotor = (gajiKotor - tax_10%) - asuransi_5%
