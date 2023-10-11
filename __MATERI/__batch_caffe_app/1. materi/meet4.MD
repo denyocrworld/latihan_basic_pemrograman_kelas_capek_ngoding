@@ -74,13 +74,17 @@ gajiKotor = (gajiKotor - tax_10%) - asuransi_5%
 
    Contoh:
    ```dart
-   void biodata({String nama, int umur}) {
-     print('Nama: $nama, Umur: $umur');
-   }
+    void printUserDetail({
+        required String nama,
+        required int umur,
+    }) {
+        print('Nama: $nama, Umur: $umur');
+    }
 
-   void main() {
-     biodata(nama: 'Alice', umur: 30); // Nama: Alice, Umur: 30
-   }
+    void main() {
+        printUserDetail(nama: 'Alice', umur: 30); // Nama: Alice, Umur: 30
+    }
+
    ```
 
 3. **Default Values (Nilai Default)**:
@@ -88,12 +92,12 @@ gajiKotor = (gajiKotor - tax_10%) - asuransi_5%
 
    Contoh:
    ```dart
-   void biodata({String nama = 'Belum Ditentukan', int umur = 0}) {
+   void printUserDetail({String nama = 'Belum Ditentukan', int umur = 0}) {
      print('Nama: $nama, Umur: $umur');
    }
 
    void main() {
-     biodata(); // Nama: Belum Ditentukan, Umur: 0
+     printUserDetail(); // Nama: Belum Ditentukan, Umur: 0
    }
    ```
 
@@ -102,12 +106,12 @@ gajiKotor = (gajiKotor - tax_10%) - asuransi_5%
 
    Contoh:
    ```dart
-   void biodata({required String nama, required int umur}) {
+   void printUserDetail({required String nama, required int umur}) {
      print('Nama: $nama, Umur: $umur');
    }
 
    void main() {
-     biodata(nama: 'Bob', umur: 25); // Nama: Bob, Umur: 25
+     printUserDetail(nama: 'Bob', umur: 25); // Nama: Bob, Umur: 25
    }
    ```
 
