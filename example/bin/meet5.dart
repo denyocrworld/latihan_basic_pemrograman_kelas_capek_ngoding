@@ -2,6 +2,7 @@ import 'package:dio/dio.dart';
 
 // Function to get products using DIO
 Future<List<dynamic>> getProducts() async {
+  throw Exception("404");
   try {
     final dio = Dio();
 
@@ -12,6 +13,10 @@ Future<List<dynamic>> getProducts() async {
         receiveTimeout: Duration(seconds: 100),
       ),
     );
+
+    if (response.statusCode == 404) {
+      throw Exception("404");
+    }
 
     if (response.statusCode == 200) {
       final jsonData = response.data;
@@ -36,6 +41,11 @@ void main() async {
   print("Berhasil menampilkan product");
   */
 
-  List products = await getProducts();
-  print(products);
+  //View = UI
+  try {
+    List products = await getProducts();
+    // print(products);
+  } on Exception catch (err) {
+    print(err);
+  }
 }
