@@ -186,3 +186,7 @@ void main() async {
   }
 }
 ```
+
+## Tugas Mentor
+- Contohkan kasus, dimana developer lupa menunggu async function dengan await
+- Jelaskan kenapa menggunakan await lebih baik daripada then
